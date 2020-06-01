@@ -7,7 +7,7 @@ ENV DEBIAN_FRONTEND=noninteractive
 ENV container docker
 EXPOSE 389 636 9090
 
-RUN apt-get update
+RUN apt-get update  -o Acquire::Check-Valid-Until=false -o Acquire::Check-Date=false
 RUN apt-get install -y systemd 389-ds
 RUN apt-get clean
 
